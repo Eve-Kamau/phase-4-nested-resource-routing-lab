@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
-  resources :items, only: [:index]
-  resources :users, only: [:show]
+  resources :items, only: [:index, :create, :show] 
+  # do
+  #   resources :users, only: [:show]
+  # end
+
+  resources :users, only: [:show] do
+    resources :items, only: [:index, :create, :show]
+  end
+
 end
